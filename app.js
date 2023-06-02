@@ -12,11 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartButton = document.querySelector("#btn-cart");
   cartButton.addEventListener("click", () => {
     showCartItems();
-    event.preventDefault(); // Prevenir el envío del formulario
+    event.preventDefault();
   });
 
   const cartCounter = document.getElementById("cart-counter");
   cartCounter.addEventListener("click", showCartItems);
 });
-
-
