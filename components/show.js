@@ -3,6 +3,7 @@ import { addToCart } from "./cart.js";
 
 export function showProduct(id) {
   const productId = parseInt(id);
+  //async await//
   fetchProductById(productId)
     .then((product) => {
       const productContainer = document.getElementById("product-container");

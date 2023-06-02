@@ -12,20 +12,21 @@ export function addToCart(productId) {
   cartCounterSpan.textContent = cartCount.toString();
 }
 
-export function showCartItems() {
+export async function showCartItems() {
   const productContainer = document.getElementById("product-container");
   productContainer.innerHTML = "";
 
-  fetchProducts()
-    .then((products) => {
-      const filteredProducts = products.filter((product) =>
-        cartItems.includes(product.id)
-      );
+  try {
+    const products = await fetchProducts();
+    const filteredProducts = products.filter((product) =>
+      cartItems.includes(product.id)
+    );
 
-      filteredProducts.forEach((product) => {
-        const card = createProductCard(product);
-        productContainer.appendChild(card);
-      });
+    filteredProducts.forEach((product) => {
+      const card = createProductCard(product);
+      productContainer.appendChild(card);
     });
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
 }
-

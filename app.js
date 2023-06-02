@@ -10,11 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
   searchBtn.addEventListener("click", searchProductsByName);
 
   const cartButton = document.querySelector("#btn-cart");
-  cartButton.addEventListener("click", () => {
-    showCartItems();
-    event.preventDefault();
+  cartButton.addEventListener("click", async () => {
+    await showCartItems();
   });
 
   const cartCounter = document.getElementById("cart-counter");
-  cartCounter.addEventListener("click", showCartItems);
+  cartCounter.addEventListener("click", async () => {
+    await showCartItems();
+  });
 });

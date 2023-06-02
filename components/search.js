@@ -4,7 +4,7 @@ import { renderProducts } from "./render.js";
 export function searchProductsByName() {
   const searchInput = document.getElementById("search");
   const searchTerm = searchInput.value.toLowerCase();
-
+//async await//
   fetchProducts()
     .then((products) => {
       const filteredProducts = products.filter((product) =>
