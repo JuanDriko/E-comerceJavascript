@@ -1,4 +1,5 @@
 import { fetchProductById } from "../services/fetch.js";
+import { addToCart } from "./cart.js";
 
 export function showProduct(id) {
   const productId = parseInt(id);
@@ -19,7 +20,7 @@ export function showProduct(id) {
         <p class="description-product">${product.description}</p>
         
         <form class="d-flex">
-          <button class="btn btn-outline-dark" type="submit">
+          <button class="btn btn-outline-dark add-to-cart-button" type="button" data-product-id="${product.id}">
             <i class="bi-cart-fill me-1"></i>
             Add Cart
           </button>
@@ -30,5 +31,11 @@ export function showProduct(id) {
         <p class="category-product">${product.category}</p>
       `;
       selectProductContainer.appendChild(card);
+
+      const addToCartButton = card.querySelector(".add-to-cart-button");
+      addToCartButton.addEventListener("click", () => {
+        const productId = parseInt(addToCartButton.getAttribute("data-product-id"));
+        addToCart(productId);
+      });
     });
 }
