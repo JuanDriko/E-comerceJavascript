@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchBtn = document.getElementById("search-btn");
   searchBtn.addEventListener("click", searchProductsByName);
 
+  
   const cartButton = document.querySelector("#btn-cart");
   cartButton.addEventListener("click", async () => {
     await showCartItems();
