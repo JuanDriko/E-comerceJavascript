@@ -10,7 +10,8 @@ export function createProductCard(product) {
     <p> $ ${product.price}</p>
     <p>${product.category}</p>
     <div class="text-center">
-        <a class="btn btn-outline-dark mt-auto view-product-link" href="product" data-product-id="${product.id}">Ver Producto</a>
+        <a class="btn btn-outline-dark mt-auto view-product-link" href="#" data-product-id="${product.id}">Ver Producto</a>
+        <input type="number" id="number" min="0">  
         <button class="btn btn-outline-dark add-to-cart-button" type="button" data-product-id="${product.id}">
             <i class="bi-cart-fill me-1"></i>
             Add Cart
@@ -32,3 +33,4 @@ export function createProductCard(product) {
 
   return card;
 }
+

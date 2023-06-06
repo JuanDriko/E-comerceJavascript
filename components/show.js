@@ -21,6 +21,7 @@ export function showProduct(id) {
         <p class="description-product">${product.description}</p>
         
         <form class="d-flex">
+        <input type="number" id="number"> 
           <button class="btn btn-outline-dark add-to-cart-button" type="button" data-product-id="${product.id}">
             <i class="bi-cart-fill me-1"></i>
             Add Cart
