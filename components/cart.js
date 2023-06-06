@@ -27,7 +27,7 @@ export async function showCartItems() {
         productContainer.appendChild(card);
       });
     } catch (error) {
-      console.error("Error fetching products:", error);
+      console.error("Error", error);
     }
   }
   
