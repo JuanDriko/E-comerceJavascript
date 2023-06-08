@@ -10874,3 +10874,8 @@ section div{
 .select-product button{
   margin-bottom: 10px;
 }
+#number{
+  width: 40px;
+  margin: 7px 0 7px 0;
+  border-radius: 5px;
+}

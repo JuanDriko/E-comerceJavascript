@@ -1,9 +1,8 @@
 import { fetchProductById } from "../services/fetch.js";
-import { addToCart } from "./cart.js";
+import { addToCart, showCartItems } from "./cart.js";
 
 export function showProduct(id) {
   const productId = parseInt(id);
-  //async await//
   fetchProductById(productId)
     .then((product) => {
       const productContainer = document.getElementById("product-container");
@@ -21,7 +20,6 @@ export function showProduct(id) {
         <p class="description-product">${product.description}</p>
         
         <form class="d-flex">
-        <input type="number" id="number"> 
           <button class="btn btn-outline-dark add-to-cart-button" type="button" data-product-id="${product.id}">
             <i class="bi-cart-fill me-1"></i>
             Add Cart
@@ -39,5 +37,8 @@ export function showProduct(id) {
         const productId = parseInt(addToCartButton.getAttribute("data-product-id"));
         addToCart(productId);
       });
+    })
+    .catch((error) => {
+      console.error(error);
     });
 }
