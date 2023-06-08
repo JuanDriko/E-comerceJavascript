@@ -46,6 +46,6 @@ export function createProductCard(product) {
   
   export function changeURL(page) {
     const url = new URL(window.location.href);
-    url.pathname = `/${page}`;
+    url.searchParams.set("DetallesProductoId", page);
     window.history.pushState({}, "", url);
   }

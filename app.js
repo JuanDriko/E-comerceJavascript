@@ -5,20 +5,27 @@ import { showProduct } from "./components/show.js";
 import { changeURL } from "./components/productCard.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  bringProducts();
+  const urlParams = new URLSearchParams(window.location.search);
 
-  const searchBtn = document.getElementById("search-btn");
-  searchBtn.addEventListener("click", searchProductsByName);
+  if (urlParams.has("DetallesProductoId")) {
+    const productId = urlParams.get("DetallesProductoId");
+    showProduct(productId);
+  } else {
+    bringProducts();
 
-  const cartButton = document.querySelector("#btn-cart");
-  cartButton.addEventListener("click", async () => {
-    await showCartItems();
-    changeURL("Cart");
-  });
+    const searchBtn = document.getElementById("search-btn");
+    searchBtn.addEventListener("click", searchProductsByName);
 
-  const cartCounter = document.getElementById("cart-counter");
-  cartCounter.addEventListener("click", async () => {
-    await showCartItems();
-    changeURL("Cart");
-  });
+    const cartButton = document.querySelector("#btn-cart");
+    cartButton.addEventListener("click", async () => {
+      await showCartItems();
+      changeURL("Cart");
+    });
+
+    const cartCounter = document.getElementById("cart-counter");
+    cartCounter.addEventListener("click", async () => {
+      await showCartItems();
+      changeURL("Cart");
+    });
+  }
 });

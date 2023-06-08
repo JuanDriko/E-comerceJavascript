@@ -3,6 +3,9 @@ import { addToCart, showCartItems } from "./cart.js";
 
 export function showProduct(id) {
   const productId = parseInt(id);
+  const url = new URL(window.location.href);
+  url.searchParams.set("DetallesProductoId", productId);
+  window.history.pushState({}, "", url);
   fetchProductById(productId)
     .then((product) => {
       const productContainer = document.getElementById("product-container");
