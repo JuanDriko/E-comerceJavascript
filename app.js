@@ -5,7 +5,7 @@ import { showProduct } from "./components/show.js";
 import { changeURL } from "./components/productCard.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const urlParams = new URLSearchParams(window.location.search);
+  const  urlParams = new URLSearchParams(window.location.search);
 
   if (urlParams.has("DetallesProductoId")) {
     const productId = urlParams.get("DetallesProductoId");
